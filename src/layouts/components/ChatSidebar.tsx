@@ -75,8 +75,8 @@ const contacts = [
   export const ChatSidebar = () => {
     return (
       <div className="page-content-chat ">
-        <h6 className="chat-title">Contactos</h6>
-        <ul className="chat-list">
+        <h6 className="chat-title">Contactos(trabajando en ello...)</h6>
+        {/*<ul className="chat-list">
           {contacts.map((contact) => (
             <li key={contact.id} className="chat-contact">
               <div className="chat-avatar-container">
@@ -86,7 +86,7 @@ const contacts = [
               <span className="chat-name">{contact.name}</span>
             </li>
           ))}
-        </ul>
+        </ul>*/}
       </div>
     );
   };

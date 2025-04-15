@@ -15,10 +15,11 @@ function AppLayout() {
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        console.log("Parsed user:", parsedUser);
+        console.log("Usuario parseado:", parsedUser);
+        console.log("Rol del usuario:", parsedUser.rol); // <-- Verifica aquí
         setUser(parsedUser);
       } catch (error) {
-        console.error("Error parsing user from localStorage:", error);
+        console.error("Error parsing user:", error);
       }
     }
   }, []);
@@ -92,6 +93,8 @@ function AppLayout() {
               <i className="bx bx-arrow-back text-white" />
             </div>
           </div>
+
+
           <ul className="metismenu" id="menu">
             <li>
               <NavLink to="/">
@@ -125,22 +128,26 @@ function AppLayout() {
                 <div className="menu-title">Actividades</div>
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/AdminPanel">
-                <div className="parent-icon">
-                  <i className="bx bx-time-five" />
-                </div>
-                <div className="menu-title">Admin Panel Escuelas</div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/PodcastAdminPanel">
-                <div className="parent-icon">
-                  <i className="bx bx-time-five" />
-                </div>
-                <div className="menu-title">Admin Panel Podcast</div>
-              </NavLink>
-            </li>
+            {user?.mail === 'luisabertosanchezvalverde@gmail.com' && (
+              <>
+                <li>
+                  <NavLink to="/AdminPanel">
+                    <div className="parent-icon">
+                      <i className="bx bx-time-five" />
+                    </div>
+                    <div className="menu-title">Admin Panel Escuelas</div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/PodcastAdminPanel">
+                    <div className="parent-icon">
+                      <i className="bx bx-time-five" />
+                    </div>
+                    <div className="menu-title">Admin Panel Podcast</div>
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <header>
